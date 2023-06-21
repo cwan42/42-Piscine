@@ -1,0 +1,138 @@
+All ex assumes correctly created directory and file for submission
+
+IMPORTANT NOTES READ OVER AND OVER:
+Ensure no forbidden functions are used. Considered cheating, -42 marks.
+Only submit main() function IF ex asks for a PROGRAM.
+Moulinette uses -wall -wextra -werror, uses cc
+Norme command: Norminette -R CheckForbiddenSourceHeader FILENAME
+Will need to adjust syntax in IDE/Vim/Nano etc to ensure Norme compliance for each answer
+for, do..while, switch, case, goto, ternaries, VLAs and implicit type invariable declarations are forbidden.
+(Note to self: take break every half hour, your idiot brain shuts off otherwise)
+
+General seq:
+Vim: F1 to insert standard school header
+#include <required library files.h> (for C00, all will only use <unistd.h> for write command)
+CODE
+
+ex00: ft_putchar
+void	ft_putchar(char c);
+{
+	write(1, &c, 1);
+}
+
+/*Keyword void means function doesn't return a value, ft_putchar is name of function, parameter in paratheses
+{} encloses body of function, i.e actual code executed when function is called. In this case 'write'
+Function call- write(file descripter 1 means stdout, & operator retrieves memory address of 'c', number of bytes to write/
+Thus, ft_putchar writes a single character 'c' to standard output. Uses char c as argument, and calls function write to & summon value of c*/
+
+ex01: ft_print_alphabet
+void	ft_print_alphabet(void);
+{
+	char	a;
+	a = 'a';
+	while (a <= 'z')
+	{
+		write(1, &a, 1);
+		a++;
+	}
+}
+
+/*Defines char a, inits variable a as character 'a', starts a loop that lasts for as long as the variable is less than character 'z'
+Write will write char a to stdout for duration of loop, starting with 'a', and then a++ will increment 'a' by 1 to next char on the alphabet
+
+ex02: ft_print_reverse_alphabet
+void ft_print_reverse_alphabet(void);
+{
+	char	a;
+	a = 'z';
+	while (a >= 'a')
+	{
+		write(1, &a, 1);
+		a--;
+	}
+}
+
+ex03: ft_print_numbers
+void ft_print_numbers(void);
+{
+	char	a;
+	a = '0';
+	while (a <= '9')
+	{
+		write(1, &a, 1);
+		a++;
+	}
+}
+
+/*Since this is for integers 0 - 9, alternate method is to use int directly, or ASCII values, i.e. 48 to 58 for 0-9)
+e.g
+	int num
+	num = 0
+	while (num < 10)
+
+		write(1, &num, 1)
+		num++ */
+
+ex04: ft_is_negative
+void ft_is_negative(int n);
+{
+	if(n<0)
+		write(1, "N", 1)
+	else
+		write(1, "P", 1)
+}
+
+ex05: ft_print_comb
+void ft_print_comb(void);
+{
+	int a, b, c;
+
+	a = 0
+	while (a <= 7)
+	{
+		b = a + 1;
+		while (b <= 8)
+		{
+			c = b + 1;
+			while (c <= 9)
+			{
+				write (1, &a, 1);
+				write (1, &b, 1);
+				write (1, &c, 1);
+				if (a != 7)
+				{
+					write (1, ", ", 2);
+				}
+				c++;
+			}
+			b++;
+		}
+		a++;
+	}
+				
+}
+
+/*Use largest comb 789 for int limits, i.e. a7 b8 c9. Nested whiles to keep writing combos. c = b + 1 means no duplicates.
+Doublecheck if need to ' ' digits as chars, or no need since int.*/
+
+ex06: ft_print_comb2
+void ft_print_comb2(void);
+{
+	
+}
+/* Create a function that displays all different combination of two two digits numbers (XX XX) between 00 and 99, listed by ascending order. */
+ex07: ft_putnbr
+void ft_putnbr(int nb);
+/*Create a function that displays the number entered as a parameter. The function has to be able to display all possible values within an int type variable.*/
+ex08: ft_print_combn
+void ft_print_combn(int n);
+/*Create a function that displays all different combinations of n numbers by ascending order. n is 1 -9*/
+
+Last note: To add in a main function to be able to test the function actual, use at the end; return() not necessarily cos all voids.
+int	main ()
+{
+	FUNCTIONNAME(Input or leave blank if void);
+}
+
+THEN gcc -o FILENAME SOURCEFILE.c
+THEN bash/sh/./ FILENAME
