@@ -1,0 +1,51 @@
+All ex assumes correctly created directory and file for submission (Note to self, check permissions allow exec)
+
+#!/bin/bash ALTERNATE #!/bin/sh , depending on if prefer bash or the more basic sh
+to exe: bash XX.sh / sh.XX.sh or ./XX.sh (ensure X permission if using explicit execution)
+
+ex01: print_groups
+groups $FT_USER | tr ' ' ',' | tr -d '\n'	/*displays all group names, separated by space. | Pipe means output of prev command is input
+for next command. Translate substitutes spaces with comma, second one deletes any newlines. (Use groups for membership, instead of id -Gn for
+associated with) */
+
+ex02: find_sh
+find . -type f -name "*.sh" -exec basename .sh {} \; //find in current folder, files with .sh format. Execute for each file,
+			//Display basename with filepath, remove .sh. {} represents each found file, \ terminates exec command
+
+ex03: count_files
+find . -type f -o -type d | wc -l //-type f -o -type d doesn't req \( \) cos' of precedence rules. wc- l by line tallies counts
+
+ex04: MAC
+ifconfig | grep -w ether | awk '{print $2}	/*ifconfig shows network details, grep filters for 'ether' as an exact word, awk displays
+the second field after each results */
+
+ex05: Marvin
+Touch '"\?$*'\'MaRViN\''*$?\"'	//Backslash needs to be contained in ' ', and ' needs to be \' to be normal chars. Sections are concatenated
+echo -n "42" > *MaRV*		//Echoes without default newline into any file with MaRV in its name, in order to ensure nothing else inside
+
+ex06: Skip
+ls -l | awk "NR%2==1"		/*awk lang allows processing of text data, consists of patterns and corresponding actions.
+				Syn awk "pattern {action}. NR Line/record number, modulus operator to disregard even lines, since 
+				Lines 2,4,6 etc will return 0, hence not == 1, hence awk will omit it from ls output */
+
+ex07: r_dwssap
+cat /etc/passwd | 		//req command with pipe (all subsequent outputs will req pipe |)
+sed '/^#/d' |			//stream editor sed performs substitutions, i.e. anyline starting with # (dev comments) and deleting it
+awk "NR%2==0 |			//Selects even lines, (implicitly from line 2 onwards since is first even line), print line is default action
+rev |				//reverses each line
+sort -fnr			//sort case-insensitive, conv to numeric, reverse order (numeric for better sort between capitalized letters)
+sed -n "$FT_LINE1,$FT_LINE2 p |	//-n specifies lines to print, between $ft_line1 and 2, p to print
+tr '\n' ' ' |			//replaces all newlines with space to make it output of names a single line
+sed 's/ /, /g' |		//replaces spaces with comma, applied globally
+sed 's/, $/./' |		//replaces last comma of line with a fullstop. ($ is meta char denoting EOL)
+tr -d '\n'			//deletes any newlines to clean up output, ensures last char is fullstop as per req.
+
+
+ex08: add_chelou		
+echo $FT_NBR1 + $FT_NBR2 |	//Prints all values from req vars
+sed 's/'/0/g' |			//Subs ' to 0 globally
+tr '\"?!' 1234 |		//Subs \"?! to 1234, i.e. FT_NBR1's base to numerals
+tr mrdoc 01234 |		//Subs mrdoc to 01234, i.e. FT_NBR2's base to numerals
+xargs echo "obase=13; ibase=5;" |//Converts the values of the two variables, in a base5 system, to the required base13 system
+bc |				//Pipes output through BC to produce numerical value in base13
+tr "0123456789ABC" "gtaio luSnemf" //Subs numbers back to letters.

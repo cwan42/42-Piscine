@@ -1,0 +1,69 @@
+All ex starts in linked git repo directory
+
+ex00: Z
+mkdir ex00 > cd ex00		//creates directory and navigates to ex00
+vim z				//creates and opens a file "z" for editing in vim
+INSERT > Z > ESC > :wq		//insert mode> Z >command mode > save and exit
+
+ex01: testShell00
+mkdir ex01 > cd ex01
+touch testShell00		//creates file "testShell00"
+ls -l				//lists directory in long form to check against requirements
+chmod u=r,g=rx,o=rx testShell00	//changes permissions to reflec requirements (-r--r-xr-x)
+vim testShell00	> INSERT	//opens file in vim for editing, enters insert mode
+type until 40 bytes > ESC > :wq!//changes file size to requirements
+touch -t 06012342 testShell00	//changes modified time/date to requirements
+tar -cf testShell00.tar testShell00	//final command to create .tar file for submission
+
+ex02: exo2.tar
+mkdir ex02 > cd ex02
+mkdir test0 > mkdir test2	//creates directory files test0 and test2
+touch test1 > touch test 3..etc //create required test1,3,4 and 5 files
+ln -s test0 test6		//created linked directory file test6
+Similiar to ex01		//use chmod, manual editing of bytes within files, and touch -t to change file info to requirements
+ls -l				//list to check against assignment
+tar -cf exo2.tar *		//creates .tar file containing all files in folder for submission
+
+ex03: SSH
+mkdir ex03 > cd ex03
+cd .. to Home > cd .ssh		//returns to home directory and navigates to hidden .ssh folder
+cat id_rsa.pub > COPY		//concatenates public key string
+cd .. to home > cd ex03		//navigates to ex03 directory
+vim id_rsa_pub > PASTE 		//creates file "id_rsa_pub", pastes public key string into file as required. Save and exit
+
+ex04: midLS
+mkdir ex04 > cd ex04
+vim midLS
+ls -tmp				//command to list by (-t)modificn time, (-m)with comma, (-p)appended with /. Save and exit
+
+ex05: Git commit
+mkdir ex05 > cd ex05
+vim git_commit.sh
+#!/bin/bash			//shebang to use bash to run script
+git log --format'%H' -n5	/*git log command, using command option format, and placeholder %H for commit has.
+				-n5 for no. of commits to display (5). Save and exit*/
+./git_commit.sh			//Ensure permissions enabled to execute, then run to test if working
+
+ex06: Git ignore
+mkdir ex06 > cd ex06
+vim git_ignore.sh
+#!/bin/bash
+git ls_files --others --ignored --exclude-standard	//lists git files that are untracked, ignored, and excludes standard ignore rules
+
+ex07: diff
+mkdir ex07 > cd ex07
+DOWNLOAD resources.tar.gz, unzip, move to ex07	//can use explorer or cp ~/downloads/resources/a. , and sw.diff
+cat a > b					//outputs contents of a into newfile called b for submission
+patch b sw.diff					//applies sw.diff over b to create file for submission
+
+ex08: clean
+mkdir ex08 > cd ex07
+vim clean
+find . \( -name "*~" -o -name "#*#" \) -type f -print - delete	/*find . (current directory), \( \) parantheses group conditions together, 
+-o is OR operator, ~ means all files ending with ~, #*# means all ending or starting with #, -type f to only apply to regular files, not
+directories or special file types. */
+
+ex09: Magic
+mkdir ex09 > cd ex09
+vim ft_magic
+41 string 42 42	File		//Check offset to 41, i.e. at 42 bytes, search for strings value of "42", returns "42 File" if true
