@@ -1,0 +1,48 @@
+All ex assumes correctly created directory and file for submission
+
+IMPORTANT NOTES READ OVER AND OVER:
+Ensure no forbidden functions are used. Considered cheating, -42 marks.
+Only submit main() function IF ex asks for a PROGRAM.
+Moulinette uses -wall -wextra -werror, uses cc
+Norme command: Norminette -R CheckForbiddenSourceHeader FILENAME
+
+General seq:
+Vim: F1 to insert standard school header
+#include <required library files.h> (for C01..
+CODE
+
+ex00: ft_ft
+void	ft_ft(int *num);
+{
+	*num = "42"
+}
+
+ex01: ft_ultimate_ft
+void	ft_ultimate_ft(int *********num);
+{
+}
+
+ex02: ft_swap
+void	ft_swap(int *a, int *b);
+{
+}
+ex03: ft_div_mod
+void	ft_div_mod(int a, int b, int *div, int *mod);
+{
+}
+
+ex04: ft_ultimate_div_mod
+ex05: ft_putstr
+ex06: ft_strlen
+ex07: ft_rev_int_tab
+ex08: ft_sort_int_tab
+___________________________________________________________________________________________________________________________________
+
+Last note: To add in a main function to be able to test the function actual, use at the end; return() not necessarily cos all voids.
+int	main ()
+{
+	FUNCTIONNAME(Input or leave blank if void);
+}
+
+THEN gcc -o FILENAME SOURCEFILE.c
+THEN bash/sh/./ FILENAME
