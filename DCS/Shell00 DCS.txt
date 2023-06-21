@@ -9,7 +9,7 @@ ex01: testShell00
 mkdir ex01 > cd ex01
 touch testShell00		//creates file "testShell00"
 ls -l				//lists directory in long form to check against requirements
-chmod u=r,g=rx,o=rx testShell00	//changes permissions to reflec requirements (-r--r-xr-x)
+chmod u=r,g=rx,o=rx testShell00	//changes permissions to reflect requirements (-r--r-xr-x), alternately, (sum of r=4, w=2, x=1), i.e. chmod 455 testShell00
 vim testShell00	> INSERT	//opens file in vim for editing, enters insert mode
 type until 40 bytes > ESC > :wq!//changes file size to requirements
 touch -t 06012342 testShell00	//changes modified time/date to requirements
