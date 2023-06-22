@@ -1,0 +1,48 @@
+Assignment name  : only_a
+Expected files   : only_a.c
+Allowed functions: write
+Write a program that displays a 'a' character on the standard output.
+
+#include <unistd.h>
+
+int    main(void)
+{
+       write(1, "a", 1)
+}
+
+Assignment name  : only_z
+Expected files   : only_z.c
+Allowed functions: write
+Write a program that displays a 'z' character on the standard output.
+
+#include <unistd.h>
+
+int     main(void)
+{
+        write(1, "z", 1)
+}
+
+Assignment name  : hello
+Expected files   : hello.c
+Allowed functions: write
+Write a program that displays "Hello World!" followed by a \n.
+
+#include <unistd.h>
+
+int     main(void)
+{
+        write(1, "Hello World!\n", 13);
+        return (0);
+}
+
+Assignment name  : ft_countdown
+Expected files   : ft_countdown.c
+Allowed functions: write
+Write a program that displays all digits in descending order, followed by a newline.
+
+Example:
+$> ./ft_countdown | cat -e
+9876543210$
+$>
+
+#include <unistd.h>
