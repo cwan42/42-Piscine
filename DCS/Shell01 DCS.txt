@@ -34,12 +34,13 @@ sed '/^#/d' |			//stream editor sed performs substitutions, i.e. anyline startin
 awk "NR%2==0 |			//Selects even lines, (implicitly from line 2 onwards since is first even line), print line is default action
 rev |				//reverses each line
 sort -fnr			//sort case-insensitive, conv to numeric, reverse order (numeric for better sort between capitalized letters)
-sed -n "$FT_LINE1,$FT_LINE2 p |	//-n specifies lines to print, between $ft_line1 and 2, p to print
+awk -v line1="$FT_LINE1" -v line2="$FT_LINE2" 'NR >= line1 && NR <= line2' // Ugly ass code
+				//Better ones would be sed -n "$FT_LINE1,$FT_LINE2 p" or awk "NR>=$FT_LINE1 && NR<=$FT_LINE2"
+				//Prints out lines between FT_LINE1 and 2 only.
 tr '\n' ' ' |			//replaces all newlines with space to make it output of names a single line
 sed 's/ /, /g' |		//replaces spaces with comma, applied globally
 sed 's/, $/./' |		//replaces last comma of line with a fullstop. ($ is meta char denoting EOL)
 tr -d '\n'			//deletes any newlines to clean up output, ensures last char is fullstop as per req.
-
 
 ex08: add_chelou		
 echo $FT_NBR1 + $FT_NBR2 |	//Prints all values from req vars
