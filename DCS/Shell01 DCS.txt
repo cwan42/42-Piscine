@@ -34,9 +34,7 @@ sed '/^#/d' |			//stream editor sed performs substitutions, i.e. anyline startin
 awk "NR%2==0 |			//Selects even lines, (implicitly from line 2 onwards since is first even line), print line is default action
 rev |				//reverses each line
 sort -fnr			//sort case-insensitive, conv to numeric, reverse order (numeric for better sort between capitalized letters)
-awk -v line1="$FT_LINE1" -v line2="$FT_LINE2" 'NR >= line1 && NR <= line2' // Ugly ass code
-				//Better ones would be sed -n "$FT_LINE1,$FT_LINE2 p" or awk "NR>=$FT_LINE1 && NR<=$FT_LINE2"
-				//Prints out lines between FT_LINE1 and 2 only.
+sed -n "${FT_LINE}${FT_LINE2}p"	//suppresses normal printing, print only between two variables listed
 tr '\n' ' ' |			//replaces all newlines with space to make it output of names a single line
 sed 's/ /, /g' |		//replaces spaces with comma, applied globally
 sed 's/, $/./' |		//replaces last comma of line with a fullstop. ($ is meta char denoting EOL)
