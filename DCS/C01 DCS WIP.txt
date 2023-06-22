@@ -12,22 +12,23 @@ Vim: F1 to insert standard school header
 CODE
 
 ex00: ft_ft
-void	ft_ft(int *num);
+void	ft_ft(int *nbr)
 {
-	*num = "42"
+	*nbr = 42;
 }
 
 ex01: ft_ultimate_ft
-void	ft_ultimate_ft(int *********num);
+void	ft_ultimate_ft(int *********num)
 {
+	int 
 }
 
 ex02: ft_swap
-void	ft_swap(int *a, int *b);
+void	ft_swap(int *a, int *b)
 {
 }
 ex03: ft_div_mod
-void	ft_div_mod(int a, int b, int *div, int *mod);
+void	ft_div_mod(int a, int b, int *div, int *mod)
 {
 }
 
