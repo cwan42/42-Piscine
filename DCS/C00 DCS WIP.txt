@@ -15,7 +15,7 @@ Vim: F1 to insert standard school header
 CODE
 
 ex00: ft_putchar
-void	ft_putchar(char c);
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
@@ -26,7 +26,7 @@ Function call- write(file descripter 1 means stdout, & operator retrieves memory
 Thus, ft_putchar writes a single character 'c' to standard output. Uses char c as argument, and calls function write to & summon value of c*/
 
 ex01: ft_print_alphabet
-void	ft_print_alphabet(void);
+void	ft_print_alphabet(void)
 {
 	char	a;
 	a = 'a';
@@ -41,7 +41,7 @@ void	ft_print_alphabet(void);
 Write will write char a to stdout for duration of loop, starting with 'a', and then a++ will increment 'a' by 1 to next char on the alphabet
 
 ex02: ft_print_reverse_alphabet
-void ft_print_reverse_alphabet(void);
+void ft_print_reverse_alphabet(void)
 {
 	char	a;
 	a = 'z';
@@ -53,7 +53,7 @@ void ft_print_reverse_alphabet(void);
 }
 
 ex03: ft_print_numbers
-void ft_print_numbers(void);
+void ft_print_numbers(void)
 {
 	char	a;
 	a = '0';
@@ -74,20 +74,22 @@ e.g
 		num++ */
 
 ex04: ft_is_negative
-void ft_is_negative(int n);
+void ft_is_negative(int n)
 {
-	if(n<0)
+	if(n < 0)
 		write(1, "N", 1)
 	else
 		write(1, "P", 1)
 }
 
 ex05: ft_print_comb
-void ft_print_comb(void);
+void ft_print_comb(void)
 {
-	int a, b, c;
+	int a;
+	int b;
+	int c;
 
-	a = 0
+	a = 0;
 	while (a <= 7)
 	{
 		b = a + 1;
@@ -112,8 +114,8 @@ void ft_print_comb(void);
 				
 }
 
-/*Use largest comb 789 for int limits, i.e. a7 b8 c9. Nested whiles to keep writing combos. c = b + 1 means no duplicates.
-Doublecheck if need to ' ' digits as chars, or no need since int.*/
+/*Uses largest comb 789 for int limits, i.e. a7 b8 c9. Nested whiles to keep writing combos. c = b + 1 means no duplicates.
+Doublecheck if need to ' ' digits as chars, or no need since int. -Checked*/
 
 ex06: ft_print_comb2
 void ft_print_comb2(void);
