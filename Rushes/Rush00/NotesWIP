@@ -20,10 +20,17 @@ write the function rush taking two variables of type int as arguments, named res
 Your function rush should display (on-screen) a rectangle of x characters for width, and y characters for length.
 
 main.c
+#include <stdio.h>
+
 void  rush(int x, int y)
 
 int   main()
 {
+      int uinput1;
+      int uinput2;
+
+      printf("Please enter two numbers separated by a space, for length and width of rectangle: ");
+      scanf("&d &d", &input1, &input2); //no output cos' will mess up grading
       rush(uinput1, uinput2);
       return(0);
 }
