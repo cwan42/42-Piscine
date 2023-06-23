@@ -16,7 +16,6 @@ void	ft_ft(int *nbr)
 {
 	*nbr = 42;
 }
-
 /*
 #include <stdio.h>
 
@@ -40,7 +39,23 @@ void	ft_ultimate_ft(int *********num)
 ex02: ft_swap
 void	ft_swap(int *a, int *b)
 {
+	int c =*a;
+	*a = *b;
+	*b = c;
 }
+/*
+#include <stdio.h>
+
+int	main()
+{
+	int x = 1;
+	int y = 2;
+
+	ft swap(&x, &y);
+	printf("%d,%d\n", x, y);
+}
+*/
+
 ex03: ft_div_mod
 void	ft_div_mod(int a, int b, int *div, int *mod)
 {
