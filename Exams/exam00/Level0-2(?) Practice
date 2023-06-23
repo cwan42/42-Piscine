@@ -7,7 +7,7 @@ Write a program that displays a 'a' character on the standard output.
 
 int    main(void)
 {
-       write(1, "a", 1)
+       write(1, "a", 1);
 }
 
 Assignment name  : only_z
@@ -19,7 +19,7 @@ Write a program that displays a 'z' character on the standard output.
 
 int     main(void)
 {
-        write(1, "z", 1)
+        write(1, "z", 1);
 }
 
 Assignment name  : hello
@@ -106,7 +106,7 @@ int    main(void)
               z -= 2;
               y -= 2;
        }
-       write (1, "\n", 1)
+       write (1, "\n", 1);
        return (0);
 }
 
