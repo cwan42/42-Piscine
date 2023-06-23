@@ -20,6 +20,7 @@ write the function rush taking two variables of type int as arguments, named res
 Your function rush should display (on-screen) a rectangle of x characters for width, and y characters for length.
 
 IMPORTANT: WHEN SUBMITTING USE main.c, compiling with maintest.c is to allow user inputs for testing purposes.
+Rem cc w 3Ws and norme
 
 main.c
 #include <stdio.h>
