@@ -19,8 +19,7 @@ Required files for submission: main.c , ft_putchar.c, rush0X.c
 write the function rush taking two variables of type int as arguments, named respectively x and y. No need to say this function should be on the rush0X.c file.
 Your function rush should display (on-screen) a rectangle of x characters for width, and y characters for length.
 
-**NOTE: NEED TO PROG ERROR MESSAGE FOR PARAMETERS EXCEEDING MAX** - Hang on, maybe no requirement for that. as long as no loop or crash is fine. //DISREGARD only do below.
-MORE IMPORTANTLY: EDIT main to remove printf/scanf, to match assignment requirements, i.e only rush (5, 5);
+IMPORTANT: WHEN SUBMITTING USE main.c, compiling with maintest.c is to allow user inputs for testing purposes.
 
 main.c
 #include <stdio.h>
