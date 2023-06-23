@@ -29,6 +29,7 @@ int	main()
 	ft_ft(nbr);
 	printf("%d\n", num);
 }
+*/
 
 ex01: ft_ultimate_ft
 void	ft_ultimate_ft(int *********num)
