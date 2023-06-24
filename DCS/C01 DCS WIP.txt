@@ -80,7 +80,21 @@ int	main()
 ex03: ft_div_mod
 void	ft_div_mod(int a, int b, int *div, int *mod)
 {
+	*div = a / b;
+	*mod = a % b;
 }
+/*
+#include <stdio.h>
+
+int	main()
+{
+	int x = 10;
+	int y = 5;
+	int divided, modulo;
+	ft_div_mod(x, y, &divided, &modulo);
+	printf("Result:%d, remainder:%d\n", divided, modulo);
+}
+*/
 
 ex04: ft_ultimate_div_mod
 ex05: ft_putstr
