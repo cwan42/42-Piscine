@@ -6,36 +6,36 @@
 /*   By: cwan42 <cwan42@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 05:19:50 by cwan42            #+#    #+#             */
-/*   Updated: 2023/06/24 06:36:53 by cwan42           ###   ########.fr       */
+/*   Updated: 2023/06/24 16:24:12 by cwan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_putchar(char c);
+void	ft_putchar(char c);
 
-void rush(int x, int y)
+void	rush(int x, int y)
 {
-	int W;
-	int L;
+	int	w;
+	int	l;
 
-	L = 1;
-	while (L <= y && x > 0)
+	l = 1;
+	while (l <= y && x > 0)
 	{
-		W = 1;
-		while (W <= x)
+		w = 1;
+		while (w <= x)
 		{
-			if	(W == 1 && (L == 1 || L == y))
+			if (w == 1 && (l == 1 || l == y))
 				ft_putchar('A');
-			else if (W == x && (L == 1 || L == y))
+			else if (w == x && (l == 1 || l == y))
 				ft_putchar('C');
-			else if	(W <= x && (L == 1 || L == y))
+			else if (w <= x && (l == 1 || l == y))
 				ft_putchar('B');
-			else if	((W == 1 || W == x) && (L <= y))
+			else if ((w == 1 || w == x) && (l <= y))
 				ft_putchar('B');
-			else	
+			else
 				ft_putchar(' ');
-			W++;
+			w++;
 		}
 		ft_putchar('\n');
-		L++;
+		l++;
 	}
 }
