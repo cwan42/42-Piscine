@@ -142,14 +142,53 @@ ex07: ft_putnbr
 void ft_putnbr(int nb);
 /*Create a function that displays the number entered as a parameter. The function has to be able to display all possible values within an int type variable.*/
 ex08: ft_print_combn
-void ft_print_combn(int n);
-/*Create a function that displays all different combinations of n numbers by ascending order. n is 1 -9*/
 
-Last note: To add in a main function to be able to test the function actual, use at the end; return() not necessarily cos all voids.
-int	main ()
+void	ft_putchar(char c)
 {
-	FUNCTIONNAME(Input or leave blank if void);
+	write(1, &c, 1);
 }
 
-THEN gcc -o FILENAME SOURCEFILE.c
-THEN bash/sh/./ FILENAME
+void	ft_printdigit(REQ?); ((Should n<10 n>0 be in function instead?))
+
+void	ft_print_combn(int n);
+{
+	int	i;		//control var
+	int	tab[n];		//no. of digits
+
+	i = 0;
+	while (i < n)
+	{
+		while (n - 1 > 0)
+			ft_putchar('0');
+		{
+			print n -1 for zeroes?
+			print last t?
+			c++?
+			n--;
+		}
+	}
+		if on last digit
+			ft_putchar(i);
+			i++;
+		if still have more numbers
+			ft_putchar(',');
+			ft_putchar(' ');
+		else
+			return (0);
+}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	ft_print_combn(1);
+/*	printf("Enter how many numbers you want, from 1 - 9.\n")
+	scanf("%d", n);
+	if (n < 10 && n > 0)
+		ft_print_combn(n);
+	else
+		printf("Error: out of range or invalid entry. Rerun program.\n")
+		return (0);
+*/
+}
+/*Create a function that displays all different combinations of n numbers by ascending order. n is 1 -9*/
