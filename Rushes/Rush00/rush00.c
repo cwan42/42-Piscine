@@ -3,37 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   rush00.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwan42 <cwan42@student.42singapore.sg>     +#+  +:+       +#+        */
+/*   By: nsim <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/24 05:19:50 by cwan42            #+#    #+#             */
-/*   Updated: 2023/06/24 17:14:44 by cwan             ###   ########.fr       */
+/*   Created: 2023/06/24 14:56:20 by nsim              #+#    #+#             */
+/*   Updated: 2023/06/25 10:11:14 by ysng             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 void	ft_putchar(char c);
 
 void	rush(int x, int y)
 {
-	int	w;
-	int	l;
+	int	width;
+	int	length;
 
-	l = 1;
-	while (l <= y && x > 0)
+	length = 1;
+	while (length <= y && x > 0)
 	{
-		w = 1;
-		while (w <= x)
+		width = 1;
+		while (width <= x)
 		{
-			if ((w != 1 && w != x) && (l == 1 || l == y))
-				ft_putchar('-');
-			else if ((l != 1 && l != y) && (w == 1 || w == x))
-				ft_putchar('|');
-			else if ((w == 1 || w == x) || (l == 1 || l == y))
-				ft_putchar('o');
+			if ((length == 1 || length == y) && (width == 1 || width == x))
+				ft_putchar ('o');
+			else if ((length == 1 || length == y) && (width != 1 || width != x))
+				ft_putchar ('-');
+			else if ((width == 1 || width == x) && (length != 1 || length != y))
+				ft_putchar ('|');
 			else
-				ft_putchar(' ');
-			w++;
+				ft_putchar (' ');
+			width++;
 		}
-		ft_putchar('\n');
-		l++;
+		ft_putchar ('\n');
+		length++;
 	}
 }
