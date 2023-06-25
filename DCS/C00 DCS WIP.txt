@@ -118,9 +118,24 @@ void ft_print_comb(void)
 Doublecheck if need to ' ' digits as chars, or no need since int. -Checked*/
 
 ex06: ft_print_comb2
-void ft_print_comb2(void);
+
+void	ft_putchar(char a, char b)
 {
-	
+	write(1, &a, 1);
+	write(1, &b, 1);
+}
+
+void	ft_print_comb2(void)
+{
+	int a, b, c, d;
+
+	while (a < 10 && b < 10)
+	{
+		if (a < 10)
+		{
+			
+		}
+	}
 }
 /* Create a function that displays all different combination of two two digits numbers (XX XX) between 00 and 99, listed by ascending order. */
 ex07: ft_putnbr
