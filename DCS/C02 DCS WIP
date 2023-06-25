@@ -3,3 +3,74 @@ No need preamble anymore leggo..
 ex00  ft_strcpy.c
 
 char  *ft_strcpy(char *dest, char *src)
+{
+    int  i;
+    while (src[i] !='\0')
+    {
+        dest[i] = src[i];
+        i++;
+    }
+    dest[i] = '\0';
+    return (dest);
+}
+/*
+#include <stdio.h>
+
+int  main(void)
+{
+    char  src[] = "SOURCE";
+    char dest[] = "DESTINATION";
+
+    printf("%s, %s -------", src, dest);
+    ft_strcpy(dest, src);
+    printf("%s, %s\n", src, dest);
+    return (0);
+}
+
+ex01  ft_strncpy.c
+
+#include <stddef.h>
+
+char  *ft_strncpy(char *dest, char *src, unsigned int n)
+{
+      size_t i;
+      i = 0;
+
+      while (i < n && src[i] != '\0')
+      {
+          dest[i] = src[i];
+          i++;
+      }
+      while (i < n)
+      {
+          dest[i] = '\0';
+          i++;
+      }
+      return (dest);
+}
+/*
+#include <stdio.h>
+int  main(void)
+{
+    char src[] = "BeFoRee";
+    char dest[] = "after";
+    size_t n = sizeof(dest) - 1;
+
+    printf("%s -- %s ------", src, dest);
+    ft_strncpy(dest, src, n);
+    printf("%s, %s\n", src, dest);
+    return (0);
+}
+*/
+
+ex02  ft_str_is_alpha
+ex03  ft_str_is_numeric
+ex04  ft_str_is_lowercase
+ex05  ft_str_is_uppercase
+ex06  ft_str_is_printable
+ex07  ft_strupcase
+ex08  ft_strlowcase
+ex09  ft_strcapitalize
+ex10  ft_strlcpy
+ex11  ft_putstr_non_printable
+ex12  ft_print_memory
