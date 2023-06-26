@@ -68,17 +68,39 @@ ex02  ft_str_is_alpha
 #include <ctype.h>
 #include <stdio.h>
 
-void
+int    ft_str_is_alpha(const char* string)
+{
+        int i;
 
+        i = 0;
+
+        while (str[i] != '\0')
+        {
+            if (!isalpha(string[i]))
+                return (0);
+            else
+                i++;
+        }
+        return (1);
+}
 int    main(void)
 {
-        
+        char input_string[200];
+
+        printf("Enter a string: ");
+        scanf("%199s", input_string);    
+        printf("%d\n", ft_str_is_alpha(input_string));
+        return (0);
 }
 ex03  ft_str_is_numeric
+        swop with isdigit
 ex04  ft_str_is_lowercase
+        swop with islower
 ex05  ft_str_is_uppercase
+        swop with isupper
 ex06  ft_str_is_printable
-ex07  ft_strupcase
+        swop with isprint
+ex07  ft_strupcase        
 ex08  ft_strlowcase
 ex09  ft_strcapitalize
 ex10  ft_strlcpy
