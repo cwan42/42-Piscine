@@ -26,6 +26,8 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	while (src[slen] != '\0')
 		slen++;
 	space = size - dlen - 1;
+	if (size == 0 || size <= dlen)
+		return (slen + size);
 	while (src[i] != '\0' && i < space)
 	{
 		dest[dlen + i] = src[i];
