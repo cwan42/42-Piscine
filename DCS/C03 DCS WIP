@@ -1,0 +1,119 @@
+ex00: ft_strcmp (Compares string lengths only)
+int  ft_strcmp(char *s1, char *2)
+{
+      int  c;
+
+      c = 0;
+      while ((s1[c] == s2[c]) && (s1[c] != '\0') && (s2[c] != '\0'))
+          c++;
+      return (s1[c] - s2[c]);
+}
+
+ex01: ft_strncmp (Compares string up to n length)
+int  ft_strncmp(char *s1, char *s2, unsigned int n)
+{
+    unsigned int c;
+    unsigned int result;
+
+    c = 0;
+    result = 0;
+    while (c < n && !result && (s1[c] ! = '\0') && (s2[c] !='\0'))
+    {
+          result = s1[c] - s2[c];
+          c++;
+    }
+    if (c < n && !result && (s1[c == '\0' || s2[c] == '\0'))
+          result = s1[c] - s2[c];
+    return (result);
+//WHILE loop runs count to check by length, IF checks if either string has terminated, returns diff s1/s2
+}
+
+ex02: ft_strcat (cats strings together w/o regard to buffer)
+char  ft_strcat(char *dest, char *src)
+{
+      int  i;
+      int  c;
+
+      i = 0;
+      c = 0;
+      while (dest[i] != '\0')
+            i++;
+      while (src[c] != '\0')
+      {
+            dest[i] = src[c];
+            i++;
+            c++;
+      }
+      dest[i] = '\0';
+      return (dest);
+}
+
+ex03: ft_strncat (cats strings limited to nb (x number of string to append))
+char  *ft_strncat(char *dest, char *src, unsigned int nb)
+{
+      unsigned int  i;
+      unsigned int  c;
+
+      i = 0;
+      c = 0;
+      while (dest[i] != '\0')
+            i++;
+      while (c < nb && src[c] != '\0')
+      {
+            dest[i] = src[c];
+            i++;
+            c++;
+      }
+      dest[i] = '\0';
+      return (dest);
+}
+
+ex04: ft_strstr (searched string for sub-string. returns str + i cos' startpos. c++ subs i count)
+char  *ft_strstr(char *str, char *to_find)
+{
+      int  i;
+      int  c;
+
+      i = 0;
+      c = 0;
+      if (to_find[0] == '\0')
+            return (str);
+      while (str[i] != '\0')
+      {
+          while (str[i + c] == to_find[c] && stri[i +c] != '\0')
+                c++;
+          if (to_find[c] == '\0')
+                return (str + i);
+          i++;
+          c = 0;
+      }
+      return (0);
+}
+
+ex05: ft_strlcat (cats strings limited to buffer size)
+unsigned int  ft_strlcat(char *dest, char *src, unsigned int size)
+{
+      unsigned int  i;
+      unsigned int  dlen;
+      unsigned int  slen;
+      unsigned int  space;
+
+      i = 0;
+      dlen = 0;
+      slen = 0;
+      space = size - dlen - 1;
+      while (dest[dlen] != '\0')
+              dlen++;
+      while (src[slen] != '\0')
+              slen++;
+      space = size - dlen - 1;
+      if (size == 0 || size <= dlen)    //req so that if size is 0 or smaller than dest, returns src string
+            return (slen + size);
+      while (src[i] != '\0' && i < space)
+      {
+            dest[dlen + i] = src[i];
+            i++;
+      }
+      dest[dlen + i] = '\0';
+      return (dlen + slen);
+}
