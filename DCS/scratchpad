@@ -1,3 +1,21 @@
 scratchpad
 if 4 then 1234.
 if 1 then 4.
+
+if 3 xs then solve for x
+
+
+x / n >> row
+x % n >> column
+
+n = truemax
+col/row values = max (visible max)
+
+thewhale01 r10d10
+
+functions needed?
+putchar
+putstr
+strlen
+atoi - cnv arg string to int
+putnbr
