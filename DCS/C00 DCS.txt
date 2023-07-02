@@ -119,76 +119,66 @@ Doublecheck if need to ' ' digits as chars, or no need since int. -Checked*/
 
 ex06: ft_print_comb2
 
-void	ft_putchar(char a, char b)
-{
-	write(1, &a, 1);
-	write(1, &b, 1);
-}
-
-void	ft_print_comb2(void)
-{
-	int a, b, c, d;
-
-	while (a < 10 && b < 10)
-	{
-		if (a < 10)
-		{
-			
-		}
-	}
-}
-/* Create a function that displays all different combination of two two digits numbers (XX XX) between 00 and 99, listed by ascending order. */
-ex07: ft_putnbr
-void ft_putnbr(int nb);
-/*Create a function that displays the number entered as a parameter. The function has to be able to display all possible values within an int type variable.*/
-ex08: ft_print_combn
+#include <unistd.h>
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_printdigit(REQ?); ((Should n<10 n>0 be in function instead?))
-
-void	ft_print_combn(int n);
+void	print(int *tab, int n)
 {
-	int	i;		//control var
-	int	tab[n];		//no. of digits
+	int	i;
+	int	low;
+
+	i = 1;
+	low = 1;
+	while (i < n)
+	{
+		if (tab[i - 1] >= tab[i])
+			low = 0;
+		i++;
+	}
+	if (low)
+	{
+		i = 0;
+		while (i < n)
+			ft_putchar(tab[i++] + 48);
+		if (tab[0] < (10 - n))
+		{
+			ft_putchar(',');
+			ft_putchar(' ');
+		}
+	}
+}
+
+void	ft_print_combn(int n)
+{
+	int	i;
+	int	tab[n];
 
 	i = 0;
 	while (i < n)
+		tab[i++] = 0;
+	while (tab[0] <= (10 - n) && n >= 1 && n <10) //leftmost digit cannot exceed 10-n
 	{
-		while (n - 1 > 0)
-			ft_putchar('0');
+		print(tab, n);
+		tab[n - 1]++;
+		i = n -1;
+		while (i && n > 1)
 		{
-			print n -1 for zeroes?
-			print last t?
-			c++?
-			n--;
+			if (tab[i] > 9)
+			{
+				tab[i - 1]++;
+				tab[i] = 0;
+			}
+			i--;
 		}
-	}
-		if on last digit
-			ft_putchar(i);
-			i++;
-		if still have more numbers
-			ft_putchar(',');
-			ft_putchar(' ');
-		else
-			return (0);
+	}	
 }
-
-#include <stdio.h>
 
 int	main(void)
 {
-	ft_print_combn(1);
-/*	printf("Enter how many numbers you want, from 1 - 9.\n")
-	scanf("%d", n);
-	if (n < 10 && n > 0)
-		ft_print_combn(n);
-	else
-		printf("Error: out of range or invalid entry. Rerun program.\n")
-		return (0);
-*/
+	ft_print_combn(2);
+	return (0);
 }
-/*Create a function that displays all different combinations of n numbers by ascending order. n is 1 -9*/
