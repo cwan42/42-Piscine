@@ -1,0 +1,149 @@
+ex00: ft_print_program_name  //literally just type its own command line out i.e. argv[0]
+
+#include <unistd.h>
+
+void  ft_putchar(char c)
+{
+      write(1, &c, 1);
+}
+
+int  main(int argc, char *argv[])
+{
+      int  i;
+
+      i = 0;
+      while (argv[0][i] != '\0' && argc)
+      {
+          ft_putchar(argv[0][i]);
+          i++;
+      }
+      ft_putchar('\n');
+      return (0);
+}
+
+ex01: ft_print_params //display own arguments, one per line, argv[1 onwards)
+
+#include <unistd.h>
+
+void  ft_putchar(char c)
+{
+      write(1, &c, 1);
+}
+
+int  main(int argc, char *argv[])
+{
+    int  i;
+    int  v;
+
+    v = 1;
+    while (v < argc)    //standard nested while loop, outer argv[count], inner argv[x][i]
+    {
+        i = 0;
+        while (argv[v][i] != '\0')
+        {
+            ft_putchar(argv[v][i]);
+            i++;
+        }
+        ft_putchar('\n');
+        v++;
+    }
+    return (0);
+}
+
+ex02: ft_rev_params    // same as prev qn, display arg but in reverse order
+
+#include <unistd.h>
+
+void  ft_putchar(char c)
+{
+      write(1, &c, 1);
+}
+
+int  main(int argc, char *argv[])
+{
+    int  i;
+    int  v;
+
+    v = argc - 1;   //use argc -1 for total no. of vectors/arguments, then v-- to countdown
+    while (v > 0)
+    {
+        i = 0;
+        while (argv[v][i] != '\0')
+        {
+              ft_putchar(argv[v][i]);
+              i++;
+        }
+        ft_putchar('\n');
+        v--;
+    }
+    return (0);
+}
+
+ex03: ft_sort_params // uses bubble sort to arrange vectors by ascii value. nb. only argv, not individual char
+
+#include <unistd.h>
+
+void  ft_putchar(char c)
+{
+      write(1, &c, 1);
+}
+
+void  ft_putstr(char *str)
+{
+      int  i;
+
+      i = 0;
+      while (str[i] != '\0')
+          ft_putchar(str[i++]);
+}
+
+int  ft_strcmp(char *s1, char *s2)
+{
+      int    i;
+
+      i = 0;
+      while (s1[i] != '\0' || s2[i] != '\0')
+      {
+            if (s1[i] == s2[i])
+                i++;
+            if (s1[i] != s2[i])
+                  return (s1[i] - s2[i]);
+      }
+      return (0);
+}
+
+void  ft_swap(char **a, char **b)
+{
+      char  *tmp;
+
+      tmp = *a;
+      *a = *b;
+      *b = tmp;
+}
+
+int  main(int argc, char **argv)
+{
+      int  i;
+      int  v;
+
+      v = 1;
+      while (v < argc - 1)    // bubble sort start between vectors, total vectors is argc -1
+      {
+          i = 1;
+          while (i < argc - 1)
+          {
+                if (ft_strcmp(argv[i], argv[i + 1]) > 0)
+                    ft_swap(&argv[i], &argv[i + 1]);
+                i++;
+          }
+          v++;
+      }
+      i = 1;
+      while (i < argc)       // prints each argv out after ordered in reverse
+      {
+            ft_putstr(argv[i]);
+            ft_putchar('\n');
+            i++;
+      }
+      return (0);
+}
