@@ -1,0 +1,216 @@
+ex00: ft_iterative_factorial // create fn that returns a factor of input num.
+
+int  ft_iterative_factorial(int nb)
+{
+      int  ans;
+
+      ans = 1;
+      if (nb < 0)
+          return (0);
+      else if (nb == 1)
+          return (1);
+      while (nb > 0)
+          ans *= nb--;
+      return (ans);
+}
+//Program will input i.e 3, ans*=nb-- >> 1 * 3>> 3 * 2>> 6 * 1 == 6.
+//Factorial multiplies whole numbers by itself down to 1.
+
+ex01: ft_recursive_factorial // same as ex00 but recursively, i.e. fn calls itself.
+
+int  ft_recursive_factorial(int nb)
+{
+      if (nb < 0)
+          return (0);
+      else if (nb == 0)
+          return (1);
+      else
+          return (nb * ft_recursive_factorial(nb - 1));
+}
+// nb will multiply with nb -1 on each instance of fn as long as nb > 0
+
+ex02: ft_iterative_power // if power = 0, return 1, else nb * for each power--
+
+int   ft_iterative_power(int nb, int power)
+{
+      int      ans;
+
+      ans = nb;
+      if (power < 0)
+            return (0);
+      else if (power == 0)
+            return (1);
+      while (power > 1)
+      {
+            ans *= nb;
+            power--;
+      }
+      return (ans);
+}
+
+ex03: ft_recursive_power
+
+int   ft_recursive_power(int nb, int power)
+{
+      int      d;
+
+      d = 1;
+      if (power == 0)
+            return (1);
+      if (power < 0)
+            return (0);
+      d *= nb;
+      power--;
+      return (d * ft_recursive_power(nb, power));
+}
+
+ex04: ft_fibonacci      // if index < 0, return -1. 
+
+int   ft_fibonacci(int index)
+{
+      if (index < 0)
+            return (-1);
+      if (index < 2)
+            return (index);
+      return ((ft_fibonacci(index - 2)) + (ft_fibonacci(index - 1)));
+}
+
+ex05: ft_sqrt      //return 0 if irrational no. 46341 max value for valid int no of 2.4bil
+
+int   ft_sqrt(int nb)
+{
+      int      n;
+
+      n = 1;
+      if (nb > 0)
+      {
+            while (n * n <= nb)
+            {
+                  if (n * n == nb)
+                        return (n);
+                  else if (n >= 46341)
+                        return (0);
+                  n++;
+            }
+      }
+      return (0);
+}
+
+ex06: ft_is_prime // uses n <= nb / n as a neater formula to minimize processing. because n^2 < nb
+
+int   ft_is_prime(int nb)
+{
+      int      n;
+
+      n = 2;
+      if (nb < 2)
+            return (0);
+      while (n <= nb / n)
+      {
+            if (nb % n == 0)
+                  return (0);
+            n++;
+      }
+      return (1);
+}
+
+ex07: ft_find_next_prime
+
+int   ft_is_prime(int nb)
+{
+      int      n;
+
+      n = 2;
+      if (nb < 2)
+            return (0);
+      while (n <= nb / n)
+      {
+            if (nb % n == 0)
+                  return (0);
+            n++;
+      }
+      return (1);
+}
+
+int   ft_find_next_prime(int nb)
+{
+      while (nb < 2147483647 && !ft_is_prime(nb))
+            nb++;
+      return (nb);
+}
+
+ex08: ft_ten_queens_puzzle
+
+#include <unistd.h>
+
+void  ft_print(int *pos, int size)
+{
+      char      c;
+
+      while (size > 0)
+      {
+            c = (char)(*pos + '0');      //casts as char, conv by adding '0'
+            write(1, &c, 1);
+            pos++;
+            size--;
+      }
+      write(1, "\n", 1);
+}
+
+int   ft_abs(int n)            //returns n if pos, -n if neg i.e. calc absolute value of int n
+{
+      if (n < 0)
+            return (-n);
+      return (n);
+}
+
+int   conflict(int *pos, int n)      //check if any conflict at pos[n] and prev queens at pos[i]
+{
+      int      i;
+
+      i = 0;
+      while (i < n)
+      {
+            if (pos[i] == pos[n])
+                  return (1);
+            if (ft_abs(i - n) == ft_abs(pos[i] - pos[n]))
+                  return (1);
+            i++;
+      }
+      return (0);
+}
+int  ft_place(int *pos, int n, int size)      //recursive fn, places queen at each pos[n] 
+{
+      int      i;
+      int      count;
+
+      count = 0;
+      if (n >= size)
+      {
+            ft_print(pos, size);
+            return (1);
+      }
+      i = 0;
+      while (i < size)
+      {
+            pos[n] = i;
+            if (!conflict(pos, n))
+                  count += ft_place(pos, n + 1, size);
+            i++;
+      }
+      return (count);
+}
+
+int   ft_ten_queens_puzzle(void)
+{
+      int      pos[10];
+      return (ft_place(pos, 0, 10));
+}
+/*
+#include <stdio.h>
+
+int   main(void)
+{
+      ft_ten_queens_puzzle;
+}
+*/
