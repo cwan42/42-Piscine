@@ -12,8 +12,12 @@ RM	= rm -f
 
 FLAGS	= -Wall -Wextra -Werror 
 
-all :
-	${CC} ${FLAGS} -g ${HEADERS} ${SRCS} -o ${NAME}
+all : ${NAME}
+
+${NAME} : ${CC} ${FLAGS} -g ${OBJS} -o ${NAME}
+
+%.o : %.c
+	${CC} ${FLAGS} -g ${OBJS} -o ${NAME}
 
 clean :
 	${RM} ${OBJS}
