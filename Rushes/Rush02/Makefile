@@ -12,12 +12,13 @@ RM	= rm -f
 
 FLAGS	= -Wall -Wextra -Werror 
 
-all : ${NAME}
+all :	${NAME}
 
-${NAME} : ${CC} ${FLAGS} -g ${OBJS} -o ${NAME}
+${NAME} : ${OBJS}
+	${CC} ${FLAGS} -g ${OBJS} -o ${NAME}
 
 %.o : %.c
-	${CC} ${FLAGS} -g ${OBJS} -o ${NAME}
+	${CC} ${FLAGS} -c $< -o $@
 
 clean :
 	${RM} ${OBJS}
